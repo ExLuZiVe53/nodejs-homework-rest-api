@@ -8,16 +8,10 @@ const contactsRouter = require("./routes/api/contacts");
 
 const app = express();
 
-<<<<<<< Updated upstream
-app.use(logger(formatsLogger))
-app.use(cors())
-app.use(express.json())
-=======
 const formatsLogger = app.get("env") === "development" ? "dev" : "short";
 
 app.use(logger(formatsLogger));
 app.use(cors());
->>>>>>> Stashed changes
 
 app.use(express.json());
 
@@ -28,13 +22,8 @@ app.use((req, res) => {
 });
 
 app.use((err, req, res, next) => {
-<<<<<<< Updated upstream
-  res.status(500).json({ message: err.message })
-})
-=======
   const { status = 500, message = "Server error" } = err;
   res.status(status).json({ message });
 });
->>>>>>> Stashed changes
 
 module.exports = app;
