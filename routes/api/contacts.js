@@ -1,10 +1,10 @@
 const express = require("express");
 
 const ctrl = require("../../controllers/contacts");
-// перевірка на валідацію
+
 const { validateBody, isValidId, authenticate } = require("../../midlewares");
 
-const { schemas} = require("../../models/contacts");
+const { schemas } = require("../../models/contacts");
 
 const router = express.Router();
 
@@ -31,5 +31,4 @@ router.patch(
 
 router.delete("/:id", authenticate, isValidId, ctrl.deleteById);
 
-module.exports = router;
 module.exports = router;
